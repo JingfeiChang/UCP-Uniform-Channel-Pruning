@@ -27,10 +27,6 @@ def conv1x1(in_planes, out_planes, stride=1):
 
 class BasicBlock(nn.Module):  
     expansion = 1 
-    '''
-    类中expansion =1，其表示box_block中最后一个block的channel比上第一个block的channel，
-    即：expansion=last_block_channel/first_block_channel 
-    '''
     def __init__(self, inplanes, planes, cfg, stride=1, downsample=None):
         # cfg should be a number in this case
         super(BasicBlock, self).__init__()
@@ -100,10 +96,6 @@ class Bottleneck(nn.Module):
 
 class BasicBlock1(nn.Module):
     expansion = 1 
-    '''
-    类中expansion =1，其表示box_block中最后一个block的channel比上第一个block的channel，
-    即：expansion=last_block_channel/first_block_channel 
-    '''
     def __init__(self, inplanes, planes, cfg, stride=1, downsample=None):
         # cfg should be a number in this case
         super(BasicBlock1, self).__init__()
@@ -198,8 +190,6 @@ class ResNet(nn.Module):
         
         if cfg == None:
            cfg = [[16]*n, [32]*n, [64]*n]
-           #cfg = [[16], [16], [16], [14], [16], [14], [16], [14], [32], [18], [32], [17], [32], [32], [32], [32], [36], [32], [37], [36], [64], [33], [13], [38]]    #0.999
-           #cfg = [[11], [12], [16], [14], [12], [14], [12], [14], [32], [17], [32], [17], [32], [32], [32], [32], [36], [32], [37], [36], [41], [33], [13], [38]]    #0.999999
            cfg = [item for sub_list in cfg for item in sub_list]
 
 

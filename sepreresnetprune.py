@@ -123,9 +123,8 @@ imscore=[
 
 skip = {
     #'A': [1, 4, 6, 14]
-    #'A': [1, 3, 4, 6, 7, 8, 10, 16]
     'A':[]
-}                                                     #跳过的不裁剪层
+}                                       
 
 layer_id = 0
 im = 0
@@ -134,7 +133,7 @@ cfg = []
 for m in [0,54]:
     out_channels = len(imscore[im])
     if layer_id in skip[args.v]:
-        cfg.append(out_channels)    #append()：在集合最后边添加新的元素；它总是把新的元素添加到list的尾部。
+        cfg.append(out_channels)   
         layer_id += 1
         im += 1
         continue
@@ -144,7 +143,7 @@ for m in [0,54]:
     imscore_copy = torch.Tensor(imscore[im])
     mask = imscore_copy.gt(thre).float().cuda()             
                      
-    cfg.append(int(torch.sum(mask)))                    # cfg是每一层剩下的通道数
+    cfg.append(int(torch.sum(mask)))                 
 
     layer_id += 1
     im += 1

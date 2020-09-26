@@ -20,7 +20,6 @@ import torch.optim
 import torch.utils.data
 import torchvision.transforms as transforms
 import torchvision.datasets as datasets
-# from utils import convert_secs2time, time_string, time_file_str
 from ptflops import get_model_complexity_info
 import models
 import numpy as np

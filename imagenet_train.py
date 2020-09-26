@@ -5,7 +5,6 @@ Created on Sun Sep  1 22:41:49 2019
 @author: ASUS
 """
 
-# https://github.com/pytorch/vision/blob/master/torchvision/models/__init__.py
 import argparse
 import os, sys
 import shutil
